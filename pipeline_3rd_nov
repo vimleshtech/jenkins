@@ -1,0 +1,62 @@
+Pipeline:
+==============================
+$java -version 
+	
+$where java 
+	C:\Program Files\Java\jdk1.8.0_181\bin\java.exe
+
+$mvn -version 	
+
+
+node
+{
+      
+	  stage('git pull') 
+       
+	  {
+  
+	             git 'E:\\Sandbox\\java-project\\javaparser-maven-sample-master'
+      
+  	 }
+        
+	stage('mvn clean')
+        
+	{
+  
+          
+         // bat "E:\\Sandbox\\apache-maven-3.5.4-bin\\apache-maven-3.5.4\\bin\\mvn clean"
+            
+            bat "mvn clean"
+        }
+        stage('mvn test')
+        {
+            
+            // bat "E:\\Sandbox\\apache-maven-3.5.4-bin\\apache-maven-3.5.4\\bin\\mvn test"
+          
+ 		 bat "mvn test"
+        
+	}
+     
+	  stage('mvn package')
+  
+      {
+     
+	       
+            //bat "E:\\Sandbox\\apache-maven-3.5.4-bin\\apache-maven-3.5.4\\bin\\mvn package"
+
+            	bat "mvn package"
+       
+	 }
+   
+     stage('mvn install')
+  
+      {
+    
+        bat "mvn install"
+        
+	}
+  
+   
+}
+
+
